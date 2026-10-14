@@ -238,10 +238,16 @@ def format_num(val, decimals=1):
 
 def get_latest_country_snapshot(df: pd.DataFrame, metric: str) -> pd.DataFrame:
     """Get the latest non-null value of a metric for each country."""
+    if df.empty or metric not in df.columns:
+        return pd.DataFrame(columns=["location", metric])
     valid = df.dropna(subset=[metric])
     if valid.empty:
-        return pd.DataFrame()
+        return pd.DataFrame(columns=["location", metric])
     return valid.sort_values("date").groupby("location", as_index=False).tail(1)
+
+
+# Compatibility alias
+latest_country_snapshot = get_latest_country_snapshot
 
 
 # ============================================================
@@ -429,10 +435,16 @@ with tab_dash:
     # Global/Selected KPIs
     kpi_col1, kpi_col2, kpi_col3, kpi_col4, kpi_col5 = st.columns(5)
 
-    latest_cases_sum = latest_country_snapshot(filtered, "total_cases")["total_cases"].sum()
-    latest_deaths_sum = latest_country_snapshot(filtered, "total_deaths")["total_deaths"].sum()
+    snap_cases = get_latest_country_snapshot(filtered, "total_cases")
+    latest_cases_sum = snap_cases["total_cases"].sum() if not snap_cases.empty and "total_cases" in snap_cases.columns else 0
+
+    snap_deaths = get_latest_country_snapshot(filtered, "total_deaths")
+    latest_deaths_sum = snap_deaths["total_deaths"].sum() if not snap_deaths.empty and "total_deaths" in snap_deaths.columns else 0
+
     cfr_pct = (latest_deaths_sum / latest_cases_sum * 100) if latest_cases_sum > 0 else 0
-    latest_vax_sum = latest_country_snapshot(filtered, "people_fully_vaccinated")["people_fully_vaccinated"].sum()
+
+    snap_vax = get_latest_country_snapshot(filtered, "people_fully_vaccinated")
+    latest_vax_sum = snap_vax["people_fully_vaccinated"].sum() if not snap_vax.empty and "people_fully_vaccinated" in snap_vax.columns else 0
 
     with kpi_col1:
         st.metric("Total Cases (Selected)", format_num(latest_cases_sum), help="Sum of latest cumulative confirmed cases")
