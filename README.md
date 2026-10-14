@@ -3,6 +3,10 @@
 > **Data Visualization Techniques (LA-2)** | **Group 2**  
 > Public Health Analytical Dashboard & Empirical Study
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://covid19-global-data-explorer-lqpxjhstcgzwc7gxhnshtd.streamlit.app/)
+**Live Dashboard:** [https://covid19-global-data-explorer-lqpxjhstcgzwc7gxhnshtd.streamlit.app/](https://covid19-global-data-explorer-lqpxjhstcgzwc7gxhnshtd.streamlit.app/)  
+**GitHub Repository:** [https://github.com/nishant-giri-j/covid19-global-data-explorer](https://github.com/nishant-giri-j/covid19-global-data-explorer)
+
 ---
 
 ## 👥 Group 2 Members
