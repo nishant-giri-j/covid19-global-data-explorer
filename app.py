@@ -70,18 +70,19 @@ NUMERIC_COLUMNS = [
 st.markdown(
     """
     <style>
-    /* Main header styling */
+    /* Main header styling - Theme Adaptive */
     .hero-title {
-        font-size: 34px;
-        font-weight: 800;
-        color: #0F172A;
-        letter-spacing: -0.5px;
-        margin-bottom: 2px;
+        font-size: 34px !important;
+        font-weight: 800 !important;
+        color: var(--text-color, #0F172A) !important;
+        letter-spacing: -0.5px !important;
+        margin-bottom: 2px !important;
     }
     .hero-subtitle {
-        font-size: 15px;
-        color: #475569;
-        margin-bottom: 16px;
+        font-size: 15px !important;
+        color: var(--text-color, #475569) !important;
+        opacity: 0.85 !important;
+        margin-bottom: 16px !important;
     }
     .badge-bar {
         display: flex;
@@ -90,50 +91,114 @@ st.markdown(
         margin-bottom: 18px;
     }
     .badge {
-        background-color: #EEF2FF;
-        color: #3730A3;
-        font-size: 12px;
-        font-weight: 600;
-        padding: 4px 10px;
-        border-radius: 9999px;
-        border: 1px solid #C7D2FE;
+        background-color: rgba(99, 102, 241, 0.15) !important;
+        color: #818CF8 !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        padding: 4px 10px !important;
+        border-radius: 9999px !important;
+        border: 1px solid rgba(99, 102, 241, 0.35) !important;
     }
 
-    /* Cards */
-    .metric-card {
-        background: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 10px;
-        padding: 16px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
+    /* Cards: Modern translucent with high-contrast text for both dark & light themes */
     .finding-card {
-        background-color: #F8FAFC;
-        border-left: 4px solid #2563EB;
-        padding: 14px 18px;
-        margin-bottom: 12px;
-        border-radius: 0 8px 8px 0;
+        background-color: rgba(37, 99, 235, 0.12) !important;
+        border: 1px solid rgba(37, 99, 235, 0.35) !important;
+        border-left: 5px solid #2563EB !important;
+        padding: 14px 18px !important;
+        margin-bottom: 12px !important;
+        border-radius: 0 8px 8px 0 !important;
+        color: inherit !important;
     }
+    .finding-card strong {
+        color: #3B82F6 !important;
+        font-size: 14.5px !important;
+    }
+    .finding-card span, .finding-card p, .finding-card div {
+        color: inherit !important;
+        opacity: 0.92 !important;
+    }
+
     .rec-card {
-        background-color: #F0FDF4;
-        border-left: 4px solid #16A34A;
-        padding: 14px 18px;
-        margin-bottom: 12px;
-        border-radius: 0 8px 8px 0;
+        background-color: rgba(22, 163, 74, 0.14) !important;
+        border: 1px solid rgba(22, 163, 74, 0.35) !important;
+        border-left: 5px solid #16A34A !important;
+        padding: 14px 18px !important;
+        margin-bottom: 12px !important;
+        border-radius: 0 8px 8px 0 !important;
+        color: inherit !important;
     }
+    .rec-card strong {
+        color: #22C55E !important;
+        font-size: 14.5px !important;
+    }
+    .rec-card span, .rec-card p, .rec-card div, .rec-card li {
+        color: inherit !important;
+        opacity: 0.92 !important;
+    }
+
     .wrong-card {
-        background-color: #FEF2F2;
-        border-left: 4px solid #DC2626;
-        padding: 14px 18px;
-        margin-bottom: 12px;
-        border-radius: 0 8px 8px 0;
+        background-color: rgba(220, 38, 38, 0.14) !important;
+        border: 1px solid rgba(220, 38, 38, 0.35) !important;
+        border-left: 5px solid #DC2626 !important;
+        padding: 14px 18px !important;
+        margin-bottom: 12px !important;
+        border-radius: 0 8px 8px 0 !important;
+        color: inherit !important;
     }
+    .wrong-card strong {
+        color: #EF4444 !important;
+        font-size: 14.5px !important;
+    }
+    .wrong-card span, .wrong-card p, .wrong-card div, .wrong-card li {
+        color: inherit !important;
+        opacity: 0.92 !important;
+    }
+
     .info-card {
-        background-color: #EFF6FF;
-        border: 1px solid #BFDBFE;
-        border-radius: 8px;
-        padding: 14px;
-        margin-bottom: 14px;
+        background-color: rgba(99, 102, 241, 0.12) !important;
+        border: 1px solid rgba(99, 102, 241, 0.35) !important;
+        border-left: 5px solid #6366F1 !important;
+        padding: 14px 18px !important;
+        margin-bottom: 14px !important;
+        border-radius: 0 8px 8px 0 !important;
+        color: inherit !important;
+    }
+    .info-card strong {
+        color: #818CF8 !important;
+        font-size: 14.5px !important;
+    }
+    .info-card span, .info-card p, .info-card div {
+        color: inherit !important;
+        opacity: 0.92 !important;
+    }
+
+    .ai-card {
+        background-color: rgba(148, 163, 184, 0.1) !important;
+        border: 1px solid rgba(148, 163, 184, 0.25) !important;
+        border-radius: 8px !important;
+        padding: 14px !important;
+        margin-bottom: 12px !important;
+        color: inherit !important;
+    }
+    .ai-card strong {
+        color: inherit !important;
+    }
+    .ai-card div, .ai-card span {
+        color: inherit !important;
+        opacity: 0.9 !important;
+    }
+
+    .story-script-box {
+        background: rgba(147, 51, 234, 0.12) !important;
+        border: 1px solid rgba(147, 51, 234, 0.35) !important;
+        border-radius: 10px !important;
+        padding: 18px !important;
+        margin-bottom: 20px !important;
+        color: inherit !important;
+    }
+    .story-script-box strong, .story-script-box em, .story-script-box p {
+        color: inherit !important;
     }
 
     /* Tab styling */
@@ -153,7 +218,7 @@ st.markdown(
         font-size: 12px;
         padding-top: 30px;
         padding-bottom: 10px;
-        border-top: 1px solid #E2E8F0;
+        border-top: 1px solid rgba(148, 163, 184, 0.2);
         margin-top: 40px;
     }
     </style>
@@ -576,7 +641,7 @@ with tab_dash:
         ]
         for title, desc in findings:
             st.markdown(
-                f'<div class="finding-card"><strong>{title}</strong><br><span style="font-size:13px; color:#334155;">{desc}</span></div>',
+                f'<div class="finding-card"><strong>{title}</strong><br><span style="font-size:13px; line-height:1.5;">{desc}</span></div>',
                 unsafe_allow_html=True
             )
 
@@ -592,7 +657,7 @@ with tab_dash:
         ]
         for title, desc in recs:
             st.markdown(
-                f'<div class="rec-card"><strong>{title}</strong><br><span style="font-size:13px; color:#14532D;">{desc}</span></div>',
+                f'<div class="rec-card"><strong>{title}</strong><br><span style="font-size:13px; line-height:1.5;">{desc}</span></div>',
                 unsafe_allow_html=True
             )
 
@@ -1016,12 +1081,12 @@ with tab_ai:
 
         st.markdown(
             f"""
-            <div style="background:#FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px; margin-bottom: 12px;">
+            <div class="ai-card">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
-                    <span style="font-weight: 700; color: #1E293B;">{item['AI Recommendation']}</span>
+                    <span style="font-weight: 700;">{item['AI Recommendation']}</span>
                     <span style="{badge_style}">{verdict}</span>
                 </div>
-                <div style="font-size: 13px; color: #475569; margin-top: 6px; border-top: 1px dashed #E2E8F0; padding-top: 6px;">
+                <div style="font-size: 13px; margin-top: 6px; border-top: 1px dashed rgba(148, 163, 184, 0.3); padding-top: 6px; line-height: 1.5;">
                     <strong>Team Justification:</strong> {item['Team Justification']}
                 </div>
             </div>
@@ -1052,11 +1117,11 @@ with tab_story:
 
     st.markdown(
         """
-        <div style="background: #FAF5FF; border: 1px solid #E9D5FF; border-radius: 10px; padding: 18px; margin-bottom: 20px;">
-            <div style="color: #6B21A8; font-weight: 800; font-size: 16px; margin-bottom: 8px;">
+        <div class="story-script-box">
+            <div style="font-weight: 800; font-size: 16px; margin-bottom: 8px; color: #C084FC;">
                 ⏱️ 2-Minute Presentation Script (Group 2)
             </div>
-            <p style="font-size: 14px; line-height: 1.6; color: #374151;">
+            <p style="font-size: 14px; line-height: 1.6;">
                 <em>"Good morning respected evaluators and peers. We are Group 2: Aashi Kohad, Himanshu Yadav, Nishant Giri, and Shreyash Karemore. Today we present our <strong>COVID-19 Global Data Explorer</strong>. Rather than viewing COVID as a uniform crisis, our interactive dashboard answers three fundamental questions:"</em>
             </p>
         </div>
@@ -1070,10 +1135,10 @@ with tab_story:
         st.markdown(
             """
             <div class="finding-card" style="height: 100%;">
-                <div style="font-size: 16px; font-weight: 800; color: #1D4ED8; margin-bottom: 6px;">
+                <div style="font-size: 16px; font-weight: 800; color: #3B82F6; margin-bottom: 6px;">
                     1. What Did We Discover?
                 </div>
-                <div style="font-size: 13px; color: #334155; line-height: 1.5;">
+                <div style="font-size: 13px; line-height: 1.5;">
                     Across 300,000 observations, we discovered that late-stage pandemic waves fundamentally decoupled: early waves were deadly across all infections, but the 2022 Omicron wave generated 4x more cases with proportionally far fewer deaths.<br><br>
                     Furthermore, demographic age alone did not dictate death rates—public health behavior in Japan saved thousands. Lastly, global vaccine coverage split into a stark <strong>bimodal distribution</strong>.
                 </div>
@@ -1086,10 +1151,10 @@ with tab_story:
         st.markdown(
             """
             <div class="rec-card" style="height: 100%;">
-                <div style="font-size: 16px; font-weight: 800; color: #15803D; margin-bottom: 6px;">
+                <div style="font-size: 16px; font-weight: 800; color: #22C55E; margin-bottom: 6px;">
                     2. Why Does It Matter?
                 </div>
-                <div style="font-size: 13px; color: #14532D; line-height: 1.5;">
+                <div style="font-size: 13px; line-height: 1.5;">
                     Tabular spreadsheets hide these insights. Without dual-axis charts, the lifesaving impact of vaccines is invisible. Without histograms, global vaccine inequality is obscured by misleading global averages.<br><br>
                     Visualizing these dynamics proves that interventions work, but reveals that global access remains deeply fractured along economic boundaries.
                 </div>
@@ -1102,10 +1167,10 @@ with tab_story:
         st.markdown(
             """
             <div class="info-card" style="height: 100%;">
-                <div style="font-size: 16px; font-weight: 800; color: #4338CA; margin-bottom: 6px;">
+                <div style="font-size: 16px; font-weight: 800; color: #818CF8; margin-bottom: 6px;">
                     3. What Action Should Be Taken?
                 </div>
-                <div style="font-size: 13px; color: #312E81; line-height: 1.5;">
+                <div style="font-size: 13px; line-height: 1.5;">
                     We propose three evidence-based actions:<br>
                     <strong>First:</strong> Shift from vaccine donation pledges to funding local regional mRNA manufacturing in underserved nations.<br>
                     <strong>Second:</strong> Pre-schedule hospital staffing and booster campaigns aligned to the November–January winter mortality surge.<br>
